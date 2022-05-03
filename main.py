@@ -8,13 +8,16 @@ def main():
     print("Hello Wordle!")
     wordle = Wordle("APPLE")
 
-    while True:
+    while wordle.can_attempt:
         x = input("Skriv in din gissning: ")
-        if x == wordle.secretw:
-            print("Du gissade rätt!")
-            break
-        print("Din gissning var tyvärr fel.")
+        wordle.attempt(x)
+        result = wordle.guess(x)
+        print(result)
 
+    if wordle.correct_guess:
+            print("Du gissade rätt!")
+    else:
+        print("Du klarade tyvärr inte att lösa ut det ord som söktes.")
     
 
 
