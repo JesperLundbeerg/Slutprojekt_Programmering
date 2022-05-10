@@ -8,14 +8,16 @@ class Wordle:
     Word_length = 5
 
     def __init__(self, secretw : str):
-        self.secretw = secretw
+        self.secretw = secretw.upper()
         self.attempts = []
         pass
 
     def attempt(self, word : str):
+        word = word.upper()
         self.attempts.append(word)
 
-    def guess(self, word: str):
+    def guess(self, word : str):
+        word = word.upper()
         result = []
 
         for i in range(self.Word_length):
