@@ -6,10 +6,13 @@ from lib2to3.pytree import convert
 from typing import List
 from resources import LetterCondition, Wordle
 from colorama import Fore
+import random
 
 def main():
-    print("Hello Wordle!")
-    wordle = Wordle("APPLE")
+    
+    word_machine = load_word_machine("Wordlist.txt")
+    secretw = random.choice(list(word_machine))
+    wordle = Wordle(secretw)
 
     while wordle.can_attempt:
         x = input("\nSkriv in din gissning: ")
@@ -25,6 +28,7 @@ def main():
             print("Du gissade rätt!")
     else:
         print("Du klarade tyvärr inte att lösa ut det ord som söktes.")
+        print(f"Ordet som söktes var: {wordle.secretw}")
     
 
 def display_results(wordle: Wordle):
@@ -43,6 +47,18 @@ def display_results(wordle: Wordle):
         lines.append(" ".join(["_"] * wordle.Word_length))
 
     border_around_wordle(lines)
+
+def load_word_machine(path : str):
+    word_machine = []
+    with open(path, "r", encoding="utf8") as f:
+        for line in f.readlines():
+            # word = line.strip().upper()
+            # word_machine.add(word)
+            word = line.split(",")
+            i = Wordle(word[0])
+            word_machine.append(i)
+    return word_machine
+
 
 def convert_result_to_color(result: List[LetterCondition]):
     result_w_color = []
