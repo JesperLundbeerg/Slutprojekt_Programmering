@@ -8,6 +8,13 @@ class Wordle:
     Word_length = 5
 
     def __init__(self, secretw : str):
+        """_summary_
+
+        Args:
+            secretw (str): _secretw är förkortning för secretword och är variabeln för ett slumpat ord från ordlistan "wordlist.txt"_
+        """
+
+
         self.secretw = secretw.upper()
         self.attempts = []
         pass
@@ -49,10 +56,17 @@ class Wordle:
 
 class LetterCondition:
     def __init__(self, character : str):
+        """_summary_
+
+        Args:
+            character (str): _Är variabeln för bokstäverna_
+
+            Med hjälp av denna klass kan vi ta reda på om bokstäverna finns i ordet eller inte
+        """
         self.character = character
         self.in_word: bool = False
         self.in_position: bool = False
 
-    # Talar om bokstaven finns i ordet (början på det iaf)
+    # Talar om bokstaven finns i ordet
     def __repr__(self):
         return f"[{self.character} in_word: {self.in_word} in_position: {self.in_position}]"

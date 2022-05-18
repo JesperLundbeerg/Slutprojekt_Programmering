@@ -7,18 +7,24 @@ from typing import List
 from resources import LetterCondition, Wordle
 from colorama import Fore
 import random
+import os
 
 def main():
     
-    word_machine = load_word_machine("Wordlist.txt")
+    word_machine = load_word_machine("words.txt")
     secretw = random.choice(list(word_machine))
     wordle = Wordle(secretw)
 
     while wordle.can_attempt:
         x = input("\nSkriv in din gissning: ")
+        x = x.upper()
 
         if len(x) != wordle.Word_length:
             print(Fore.RED + f"Ordet måste vara {wordle.Word_length} bokstäver långt! Testa igen." + Fore.RESET)
+            continue
+
+        if not x in word_machine:
+            print(Fore.RED + f"{x} är inte ett riktigt ord! Testa igen." + Fore.RESET)
             continue
 
         wordle.attempt(x)
@@ -32,7 +38,7 @@ def main():
     
 
 def display_results(wordle: Wordle):
-    print("\nDina resultat hittills...\n")
+    print("\nDina resultat hittills...")
     print(f"Du har {wordle.attempts_left} försök kvar.\n")
     
     lines = []
@@ -49,18 +55,23 @@ def display_results(wordle: Wordle):
     border_around_wordle(lines)
 
 def load_word_machine(path : str):
-    word_machine = []
+    word_machine = set()
     with open(path, "r", encoding="utf8") as f:
         for line in f.readlines():
-            # word = line.strip().upper()
-            # word_machine.add(word)
-            word = line.split(",")
-            i = Wordle(word[0])
-            word_machine.append(i)
+            word = line.strip().upper()
+            word_machine.add(word)
     return word_machine
 
 
 def convert_result_to_color(result: List[LetterCondition]):
+    """_summary_
+
+    Args:
+        result (List[LetterCondition]): _description_
+
+    Returns:
+        _type_: _description_
+    """
     result_w_color = []
     for letter in result:
         if letter.in_position:
@@ -85,5 +96,26 @@ def border_around_wordle(lines : List[str], size: int=9, pad : int=1):
         
     print(bottom_border)
 
+def clear():
+    command = "clear"
+    if os.name in ("nt", "dos"):
+        command = "cls"
+    os.system(command)
+
 if __name__ == "__main__":
-    main()
+    clear()
+    enter = input("Välkommen! Tryck enter för att starta spelet: ")
+    if "" in enter:
+        pass
+    while True:
+        main()
+        choice = input("Vill du spela igen? [ja, nej]: ")
+        if "ja".casefold() in choice.casefold():
+            clear()
+            continue
+        elif "nej".casefold() in choice.casefold():
+            break
+        else:
+            break
+    clear()
+    print("Tack för att du spelat!")
