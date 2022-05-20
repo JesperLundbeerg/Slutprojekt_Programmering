@@ -2,13 +2,9 @@
 
 ## Beskrivning
 
-***Här bör du kort förklara vilket eller vilka språk programmet är skrivet i samt vad syftet med projektet är.***
-
-Denna README är skriven i markdown. Den är till för att ge ett exempel på vad en README kan innehålla och hur den kan se ut.
+Detta projekt har jag skapat som ett sista slutprojekt i kursen "Programmering 1", med hjälp av kodningsspråket Python. Mitt projekt har inte riktigt ett viktigt syfte, däremot kan det vara ett kul men klurigt sätt att fördriva sin tid på.
 
 ## Teknologier/Språk/Byggt med - välj en
-
-***Här kan du beskriva vilka språk som driver vilka delar av projektet, exempelvis att du skrivit frontend med JavaScript och Python för backend. Det kan även vara nyttigt att berätta vilka ramverk eller bibliotek du använt här för de olika delarna. För exemplena givna är React (för JS) och Flask (Python) bra att nämna. Utelämna add-ons eller plugins, lämna dessa till Acknowledgements.***
 
 - Python
 - Markdown
@@ -22,43 +18,42 @@ Denna README är skriven i markdown. Den är till för att ge ett exempel på va
 
 ## Installation
 
-***För att köra programmet listar du här vad som behövs och hur det installeras. Exempel:***
+1.Klona repot
 
-1. Klona repot
-```cmd
-    git clone https://github.com/JesperLundbeerg/Wordle_a_fun_game
+ ```cmd
+git clone https://github.com/JesperLundbeerg/Wordle_a_fun_game
 ```
-2. Installera colorama
+
+2.Installera colorama
+
 ```cmd
 pip install colorama
 ```
-3. Installera den senaste versionen av Python nedan:
->https://www.python.org/downloads/
 
-## Example (exempelkörning)
+3.Installera den senaste versionen av Python nedan:
+<https://www.python.org/downloads/>
+
+## Exempelkörning
 
 <img src="Images/1.png">
 <img src="Images/2.png">
 
-## To do/Roadmap (Att göra/Plan)
-
-***Det kan vara nyttigt att få andra som läser om projektet att få veta vad du saknar just nu i programmet. Gör detta gärna genom en lista där färdiga saker strukits över.***
-Exempel:
+## Att göra
 
 - [x] Påbörja readme
 - [x] Implementera färg i terminalen
 - [x] Göra så att man kan skriva utan CAPS
-- [ ] Instruktioner för spelet, när man börjar.
+- [x] Instruktioner för spelet, när man börjar.
 - [ ] Lägga till en färg för dupletter av bokstaven
-- [ ] Ytterligare språk
-    - [x] Svenska
-    - [ ] Engelska
-    - [ ] Spanska
-- [ ] Språk på ordlista
-    - [x] Engelska
-    - [ ] Svenska
-    - [ ] Spanska
 - [ ] Utöka ordlistan
+    - Ytterligare språk på spelet
+- [x] Svenska
+- [ ] Engelska
+- [ ] Spanska
+    - Språk på ordlista
+- [x] Engelska
+- [ ] Svenska
+- [ ] Spanska
 
 ## Changelog
 

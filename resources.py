@@ -11,7 +11,8 @@ class Wordle:
         """_summary_
 
         Args:
-            secretw (str): _secretw är förkortning för secretword och är variabeln för ett slumpat ord från ordlistan "wordlist.txt"_
+            secretw (str): secretw är förkortning för secretword och 
+            är variabeln för ett slumpat ord från ordlistan "wordlist.txt".
         """
 
 
@@ -59,9 +60,9 @@ class LetterCondition:
         """_summary_
 
         Args:
-            character (str): _Är variabeln för bokstäverna_
+            character (str): Är variabeln för bokstäverna.
 
-            Med hjälp av denna klass kan vi ta reda på om bokstäverna finns i ordet eller inte
+            Med hjälp av denna klass kan vi ta reda på om bokstäverna finns i ordet eller inte.
         """
         self.character = character
         self.in_word: bool = False

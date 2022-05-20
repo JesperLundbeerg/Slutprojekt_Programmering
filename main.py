@@ -2,7 +2,6 @@
 #TEINF20
 #Wordle a fun game - main
 
-from lib2to3.pytree import convert
 from typing import List
 from resources import LetterCondition, Wordle
 from colorama import Fore
@@ -16,6 +15,11 @@ def main():
     wordle = Wordle(secretw)
 
     while wordle.can_attempt:
+        print("\nInstruktioner: Detta är ett spel där du ska gissa dig fram till ett hemligt ord.")
+        print("""Ordet ska vara 5 bokstäver långt och just nu används en ordlista på engelska,
+så endast ord på engelska är tillåtna ;)
+        """)
+        print("Lycka till!")
         x = input("\nSkriv in din gissning: ")
         x = x.upper()
 
@@ -104,7 +108,7 @@ def clear():
 
 if __name__ == "__main__":
     clear()
-    enter = input("Välkommen! Tryck enter för att starta spelet: ")
+    enter = input("Välkommen till Wordle! Tryck enter för att starta spelet: ")
     if "" in enter:
         pass
     while True:
